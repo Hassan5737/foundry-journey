@@ -1,0 +1,19 @@
+# Foundry build artifacts
+out/
+cache/
+broadcast/
+
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Coverage reports
+coverage/
+lcov.info
+
+# Editor and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
