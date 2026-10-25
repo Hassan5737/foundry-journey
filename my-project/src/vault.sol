@@ -1,7 +1,7 @@
 // SPDX-License-Identifier:MIT
 pragma solidity ^0.8.31;
 
-contract vault {
+contract Vault {
     // balance mapping
     mapping (address => uint256) private balances;
 
