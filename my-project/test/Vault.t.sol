@@ -14,9 +14,25 @@ contract VaultTest is Test {
         vm.deal(user, 10 ether);
     }
 
-    // test function 1
-    
 
+
+                   // AAA testing 
+
+    // test function 1
+    function test_deposit() public  {
+
+        // Arrange
+
+        //Act
+        vm.prank(user);
+        vault.deposit {value: 1 ether}();
+
+
+        //Assert
+        vm.prank(user);
+        assertEq(vault.getBalance() , 1 ether);
+        
+    }
 
     // test function 2
 
