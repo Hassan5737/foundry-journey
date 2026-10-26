@@ -3,7 +3,7 @@ pragma solidity ^0.8.31;
 
 contract Vault {
     // balance mapping
-    mapping (address => uint256) private balances;
+    mapping (address => uint256) public balances;
 
     //function deposit
     function deposit() external payable {
@@ -15,6 +15,12 @@ contract Vault {
 
     // function withdraw
     function withdraw (uint256 amount) external {
+        require(balances[msg.sender] >= amount, "Insufficient balance");
+
+        balances[msg.sender] -= amount;
+
+        (bool success, ) = msg.sender.call{value: amount} ("");
+        require(success, "withdraw failed");
 
     }
 

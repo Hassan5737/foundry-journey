@@ -35,6 +35,38 @@ contract VaultTest is Test {
     }
 
     // test function 2
+    function test_deposit_zero_Amount() public {
 
-    
+        vm.expectRevert("Insufficient amount");
+        vault.deposit();
+    }
+
+    // test function 3
+    function test_withdraw() public {
+
+        uint withdrawAmount = 1 ether;
+        // deposit 2 ether
+        vm.startPrank(user);
+        vault.deposit{value: 2 ether}();
+
+        // withdraw 1 ether
+        uint balanceBefore = user.balance;
+        vault.withdraw(withdrawAmount);
+        uint balanceAfter = user.balance;
+        vm.stopPrank();
+
+        // check balance
+        assertEq(vault.balances(user) , 1 ether);
+
+        // check user balance
+        assertEq(balanceAfter, balanceBefore + withdrawAmount);
+    }
+
+    function test_withdraw_Revert_If_Insufficient_Balance() public {
+        vm.startPrank(user);
+        vault.deposit {value: 1 ether}();
+        vm.expectRevert("Insufficient balance");
+        vault.withdraw(2 ether);
+        vm.stopPrank();
+    } 
 }
