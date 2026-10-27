@@ -1,4 +1,4 @@
-# Day 06 — Foundry Testing: Match Flags, Verbosity & Code Coverage
+# Foundry Testing: Match Flags, Verbosity & Code Coverage
 
 ## Overview
 
