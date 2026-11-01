@@ -1,4 +1,4 @@
-# Day 02: Building a Vault Smart Contract
+# Building a Vault Smart Contract
 
 ## Overview
 

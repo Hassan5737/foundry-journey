@@ -1,4 +1,4 @@
-# Day 01: Introduction to Foundry
+# Introduction to Foundry
 
 ## Overview
 
